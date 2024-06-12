@@ -1,8 +1,150 @@
-import React, { useState, useRef } from "react";
-import { IcButton, IcSearchBar } from "../../components";
+import React, { useState, useRef, useEffect } from "react";
+import { IcButton, IcSearchBar, IcTypography } from "../../components";
 
 export const IC_INPUT_CONTAINER = "ic-input-component-container";
 export const IC_MENU_LI = "ic-menu ul li";
+
+export const Basic = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar
+        label="What is your favourite coffee?"
+        options={[
+          { label: "Espresso", value: "espresso" },
+          { label: "Double Espresso", value: "doubleespresso" },
+          { label: "Flat White", value: "flatwhite" },
+          { label: "Cappuccino", value: "cappucino" },
+          { label: "Americano", value: "americano" },
+          { label: "Ameno", value: "ameno" },
+          { label: "Aicano", value: "acano" },
+          { label: "Mocha", value: "mocha" },
+        ]}
+      />
+    </div>
+  );
+};
+
+export const Default = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar label="What is your favourite coffee?" />
+    </div>
+  );
+};
+
+export const Disabled = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar label="What is your favourite coffee?" disabled />
+    </div>
+  );
+};
+
+export const FullWidth = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar
+        label="What is your favourite coffee?"
+        fullWidth={true}
+        id="search2"
+        options={[
+          { label: "Espresso", value: "espresso" },
+          { label: "Double Espresso", value: "doubleespresso" },
+          { label: "Flat White", value: "flatwhite" },
+          { label: "Cappuccino", value: "cappucino" },
+          { label: "Americano", value: "americano" },
+          { label: "Mocha", value: "mocha" },
+        ]}
+      />
+      <IcTypography>
+        {" "}
+        Suggested search options: Espresso, Double Espresso, Flat White,
+        Cappuccino, Americano, Mocha
+      </IcTypography>
+    </div>
+  );
+};
+
+export const HelperText = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar
+        placeholder="Start typing to search…"
+        label="What is your favourite coffee?"
+        helperText="Coffee options will be displayed as you type."
+        options={[
+          { label: "Espresso", value: "espresso" },
+          { label: "Double Espresso", value: "doubleespresso" },
+          { label: "Flat White", value: "flatwhite" },
+          { label: "Cappuccino", value: "cappuccino" },
+          { label: "Americano", value: "americano" },
+          { label: "Mocha", value: "mocha" },
+        ]}
+      />
+    </div>
+  );
+};
+
+export const HiddenLabel = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar
+        placeholder="Start typing to search…"
+        label="What is your favourite coffee?"
+        hideLabel
+        options={[
+          { label: "Espresso", value: "espresso" },
+          { label: "Double Espresso", value: "doubleespresso" },
+          { label: "Flat White", value: "flatwhite" },
+          { label: "Cappuccino", value: "cappuccino" },
+          { label: "Americano", value: "americano" },
+          { label: "Mocha", value: "mocha" },
+        ]}
+      />
+    </div>
+  );
+};
+
+export const Small = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar
+        label="What is your favourite coffee?"
+        size="small"
+        options={[
+          { label: "Espresso", value: "espresso" },
+          { label: "Double Espresso", value: "doubleespresso" },
+          { label: "Flat White", value: "flatwhite" },
+          { label: "Cappuccino", value: "cappuccino" },
+          { label: "Americano", value: "americano" },
+          { label: "Mocha", value: "mocha" },
+        ]}
+      />
+    </div>
+  );
+};
+
+export const OptionsNoFiltering = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar
+        placeholder="Start typing to search…"
+        label="What is your favourite coffee?"
+        disableFilter
+        options={[
+          { label: "Espresso", value: "espresso" },
+          { label: "Double Espresso", value: "doubleespresso" },
+          { label: "Flat White", value: "flatwhite" },
+          { label: "Cappuccino", value: "cappuccino" },
+          { label: "Americano", value: "americano" },
+          { label: "Mocha", value: "mocha" },
+        ]}
+      />
+      <br />
+      <IcTypography>All options will be displayed as you type</IcTypography>
+    </div>
+  );
+};
 
 export const Controlled = () => {
   const [options, setOptions] = useState([
@@ -29,7 +171,14 @@ export const Controlled = () => {
     ]);
   };
   return (
-    <div style={{ display: "flex", flexDirection: "row", gap: "8px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        gap: "8px",
+        padding: "10px",
+      }}
+    >
       <IcSearchBar
         placeholder="Controlled"
         label="Controlled"
@@ -50,20 +199,22 @@ export const Uncontrolled = () => {
   };
   return (
     <>
-      <IcSearchBar
-        ref={searchEl}
-        placeholder="Uncontrolled"
-        label="Uncontrolled"
-        options={[
-          { label: "Espresso", value: "esp" },
-          { label: "Double Espresso", value: "dbl" },
-          { label: "Flat White", value: "fla" },
-          { label: "Cappuccino", value: "cap" },
-          { label: "Americano", value: "ame" },
-          { label: "Mocha", value: "moc" },
-        ]}
-        onIcChange={handleChange}
-      />
+      <div style={{ padding: "10px" }}>
+        <IcSearchBar
+          ref={searchEl}
+          placeholder="Uncontrolled"
+          label="Uncontrolled"
+          options={[
+            { label: "Espresso", value: "esp" },
+            { label: "Double Espresso", value: "dbl" },
+            { label: "Flat White", value: "fla" },
+            { label: "Cappuccino", value: "cap" },
+            { label: "Americano", value: "ame" },
+            { label: "Mocha", value: "moc" },
+          ]}
+          onIcChange={handleChange}
+        />
+      </div>
     </>
   );
 };
@@ -128,6 +279,113 @@ export const LongOptionLabel = () => {
           },
         ]}
       />
+    </div>
+  );
+};
+
+export const InAForm = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <form onSubmit={() => console.log("form submit")}>
+        <IcSearchBar label="What is your favourite coffee?" />
+      </form>
+    </div>
+  );
+};
+
+export const QuerySearchMode = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar
+        label="What is your favourite coffee?"
+        searchMode="query"
+        onIcSubmitSearch={() => console.log("submit search")}
+        options={[
+          { label: "Espresso", value: "espresso" },
+          { label: "Double Espresso", value: "doubleespresso" },
+          { label: "Flat White", value: "flatwhite" },
+          { label: "Cappuccino", value: "cappucino" },
+          { label: "Americano", value: "americano" },
+          { label: "Mocha", value: "mocha" },
+        ]}
+      />
+    </div>
+  );
+};
+
+export const ExternalFiltering = () => {
+  const mockData = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappucino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ];
+  const [event, setEvent] = useState(null);
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [optionSelected, setOptionSelected] = useState(false);
+  useEffect(() => {
+    const searchTerm = event?.detail.value;
+    if (searchTerm !== optionSelected) {
+      if (searchTerm?.length > 1) {
+        if (!optionSelected) {
+          setLoading(true);
+        }
+        setOptionSelected(false);
+        const mockAPI = (query) => {
+          const filteredResults = mockData.filter((m) =>
+            m.label.toLowerCase().includes(query.toLowerCase())
+          );
+          return new Promise((resolve) =>
+            setTimeout(
+              () => resolve(filteredResults),
+              event.type === "icChange" ? 2000 : 500
+            )
+          );
+        };
+        mockAPI(searchTerm).then((results) => setResults(results));
+      } else {
+        setResults([]);
+      }
+    }
+    setOptionSelected(false);
+  }, [event, optionSelected]);
+  const handleChange = (event) => {
+    setEvent(event);
+  };
+  const handleOptionSelect = () => {
+    setOptionSelected(true);
+  };
+  return (
+    <IcSearchBar
+      loading={loading}
+      timeout={1000}
+      debounce={300}
+      placeholder="Type to search"
+      label="Search for coffee"
+      onIcChange={handleChange}
+      onIcRetryLoad={handleChange}
+      onIcOptionSelect={handleOptionSelect}
+      disableFilter
+      options={results}
+      loadingLabel="Loading time"
+      loadingErrorLabel="Oops error"
+    />
+  );
+};
+
+export const ExternalFilteringSearchBar = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <ExternalFiltering />
+      <br />
+      <IcTypography>
+        Suggested search options: Espresso, Double Espresso, Flat White,
+        Cappuccino, Americano, Mocha
+      </IcTypography>
+      <br />
     </div>
   );
 };
