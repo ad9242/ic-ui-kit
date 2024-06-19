@@ -4,7 +4,7 @@ import {
   IcStatusTagStatuses,
   IcStatusTagAppearance,
 } from "./ic-status-tag.types";
-import { IcEmphasisType, IcSizesNoLarge } from "../../utils/types";
+import { IcEmphasisType, IcSizes } from "../../utils/types";
 
 @Component({
   tag: "ic-status-tag",
@@ -31,7 +31,7 @@ export class StatusTag {
   /**
    * The size of the status tag component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizes = "default";
 
   /**
    * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
@@ -62,7 +62,7 @@ export class StatusTag {
   }
 
   render() {
-    const { label, status, appearance, variant, small, size, announced } = this;
+    const { label, status, appearance, variant, size, announced } = this;
     return (
       <Host role={announced ? "status" : null} aria-label="Status">
         <strong
@@ -71,7 +71,9 @@ export class StatusTag {
             [`${appearance}-${status}`]: appearance !== undefined,
             [`${variant}-${status}`]: true,
             ["outlined"]: variant === "outlined",
-            ["small"]: small || size === "small",
+            [`${size}`]: true,
+
+            
           }}
         >
           <ic-typography
