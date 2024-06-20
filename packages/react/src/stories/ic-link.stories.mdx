@@ -98,3 +98,43 @@ export const DailyTippers = () => (
     </Routes>
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  appearance: "default",
+  href: "/",
+  target: "",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      appearance: {
+        options: ["default", "light", "dark"],
+        control: {
+          type: "radio",
+        },
+      },
+      target: {
+        options: ["_blank", "_self", "_parent", "_top", ""],
+        control: {
+          type: "radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>(
+        <div style={{ backgroundColor: args.appearance == "light" ? "black" : ""}}>
+          <IcLink
+            href={args.href}
+            appearance={args.appearance}
+            target={args.target}
+          >This is a link</IcLink>
+        </div>
+    )}
+  </Story>
+</Canvas>
