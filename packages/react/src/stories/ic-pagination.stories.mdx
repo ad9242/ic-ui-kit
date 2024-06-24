@@ -13,6 +13,19 @@ import readme from "../../../web-components/src/components/ic-pagination/readme.
 
 <Description markdown={readme} />
 
+export const defaultArgs = {
+  pages: 15,
+  paginationType: "simple",
+  appearance: "default",
+  hideCurrentPage: false,
+  hideFirstAndLastPageButton: false,
+  defaultPage: 1,
+  disabled: false,
+  label: "",
+  adjacentCount: 1,
+  boundaryCount: 1,
+};
+
 ### Simple
 
 <Canvas>
@@ -133,5 +146,40 @@ import readme from "../../../web-components/src/components/ic-pagination/readme.
         boundaryCount="2"
       />
     </div>
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story name="Playground"
+      args={defaultArgs}
+      argTypes={{
+        paginationType: {
+          control: { type: "inline-radio" },
+          options: ["simple", "complex"],
+        },
+        appearance: {
+          control: { type: "inline-radio" },
+          options: ["default", "dark", "light"],
+        },
+}}
+      >
+      {(args) => (
+          <div style={{backgroundColor: args.appearance == "light" ? "black" : null, width: "fit-content"}}>
+            <IcPagination
+              pages={args.pages}
+              type={args.paginationType}
+              adjacentCount={args.adjacentCount}
+              boundaryCount={args.boundaryCount}
+              label={args.label}
+              disabled={args.disabled}
+              defaultPage={args.defaultPage}
+              hideFirstAndLastPageButton={args.hideFirstAndLastPageButton}
+              hideCurrentPage={args.hideCurrentPage}
+              appearance={args.appearance}
+            />
+          </div>
+        )}
   </Story>
 </Canvas>
