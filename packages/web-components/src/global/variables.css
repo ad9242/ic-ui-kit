@@ -18,6 +18,7 @@
     cubic-bezier(0.165, 0.84, 0.44, 1);
   --ic-transition-duration-fast: 100ms;
   --ic-transition-duration-slow: 300ms;
+  --some-css-var: 100px;
 
   /* borders */
   --ic-border-width: 0.0625rem;
