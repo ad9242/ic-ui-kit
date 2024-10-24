@@ -1534,6 +1534,10 @@ export namespace Components {
          */
         "spellcheck": boolean;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
@@ -4779,6 +4783,10 @@ declare namespace LocalJSX {
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
         "spellcheck"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
