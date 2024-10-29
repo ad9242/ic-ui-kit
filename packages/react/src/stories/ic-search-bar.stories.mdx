@@ -403,6 +403,7 @@ export const defaultArgs = {
   required: false,
   size: "medium",
   spellcheck: false,
+  theme: "inherit",
 };
 
 <Canvas>
@@ -419,6 +420,10 @@ export const defaultArgs = {
       },
       size: {
         options: ["medium", "small"],
+        control: { type: "inline-radio" },
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
         control: { type: "inline-radio" },
       }
     }}
@@ -448,6 +453,7 @@ export const defaultArgs = {
             { label: "Americano", value: "americano" },
             { label: "Mocha", value: "mocha" },
           ]}
+          theme={args.theme}
         />
     )}
   </Story>
