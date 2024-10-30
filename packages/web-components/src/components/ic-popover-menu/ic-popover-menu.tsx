@@ -354,14 +354,14 @@ export class PopoverMenu {
           }}
           tabindex={open ? "0" : "-1"}
         >
-          <div
+          <span
             class={{
               "opening-from-parent": this.openingFromParent,
               "opening-from-child": this.openingFromChild,
             }}
           >
             {isPropDefined(this.submenuId) && (
-              <div>
+              <span>
                 <ic-menu-item
                   class="ic-popover-submenu-back-button"
                   ref={(el) => (this.backButton = el)}
@@ -385,12 +385,12 @@ export class PopoverMenu {
                 <ic-typography variant="subtitle-small" class="parent-label">
                   {this.parentLabel}
                 </ic-typography>
-              </div>
+              </span>
             )}
             <ul class="button" aria-label={this.getMenuAriaLabel()} role="menu">
               <slot></slot>
             </ul>
-          </div>
+          </span>
         </div>
       </Host>
     );

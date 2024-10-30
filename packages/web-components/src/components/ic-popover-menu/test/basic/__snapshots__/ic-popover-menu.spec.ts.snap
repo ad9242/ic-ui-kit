@@ -4,8 +4,8 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
 <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" submenu-id="submenu">
   <mock:shadow-root>
     <div class="menu" id="ic-popover-submenu-submenu" tabindex="0">
-      <div>
-        <div>
+      <span>
+        <span>
           <ic-menu-item class="ic-popover-submenu-back-button" id="ic-popover-submenu-back-button-1" variant="default">
             <mock:shadow-root>
               <li aria-disabled="false" role="menuitem">
@@ -30,11 +30,11 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
             </svg>
           </ic-menu-item>
           <ic-typography class="parent-label" variant="subtitle-small"></ic-typography>
-        </div>
+        </span>
         <ul aria-label="popover-menu, within nested level 1 undefined submenu," class="button" role="menu">
           <slot></slot>
         </ul>
-      </div>
+      </span>
     </div>
   </mock:shadow-root>
   <ic-menu-item label="Button 1" variant="default">
@@ -78,11 +78,11 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
 <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu">
   <mock:shadow-root>
     <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
-      <div>
+      <span>
         <ul aria-label="popover-menu" class="button" role="menu">
           <slot></slot>
         </ul>
-      </div>
+      </span>
     </div>
   </mock:shadow-root>
   <ic-menu-item label="Button 1" variant="default">
@@ -102,14 +102,14 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
       </li>
     </mock:shadow-root>
   </ic-menu-item>
-  <ic-menu-group aria-label="Button group" label="Button group">
+  <ic-menu-group aria-label="Button group" label="Button group" role="group">
     <mock:shadow-root>
       <ic-typography variant="subtitle-small">
         Button group
       </ic-typography>
-      <ul role="group">
+      <span>
         <slot></slot>
-      </ul>
+      </span>
     </mock:shadow-root>
     <ic-menu-item label="Group button 1" variant="destructive">
       <mock:shadow-root>
@@ -191,11 +191,11 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
   <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" class="open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
       <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
-        <div>
+        <span>
           <ul aria-label="popover-menu" class="button" role="menu">
             <slot></slot>
           </ul>
-        </div>
+        </span>
       </div>
     </mock:shadow-root>
     <ic-menu-item label="Button 1" variant="default">
@@ -240,11 +240,11 @@ exports[`ic-popover-menu should render when anchor starts with #: should render 
 <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu">
   <mock:shadow-root>
     <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
-      <div>
+      <span>
         <ul aria-label="popover-menu" class="button" role="menu">
           <slot></slot>
         </ul>
-      </div>
+      </span>
     </div>
   </mock:shadow-root>
   <ic-menu-item label="Button 1" variant="default">
@@ -271,11 +271,11 @@ exports[`ic-popover-menu should render with anchor: should render with anchor 1`
 <ic-popover-menu anchor="anchorEl" aria-label="popover-menu">
   <mock:shadow-root>
     <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
-      <div>
+      <span>
         <ul aria-label="popover-menu" class="button" role="menu">
           <slot></slot>
         </ul>
-      </div>
+      </span>
     </div>
   </mock:shadow-root>
   <ic-menu-item label="Button 1" variant="default">
