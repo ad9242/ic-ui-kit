@@ -13,6 +13,7 @@ import {
 } from "@stencil/core";
 import { getSlotElements, isPropDefined } from "../../utils/helpers";
 import { createPopper, Instance as PopperInstance } from "@popperjs/core";
+import { IcValueEventDetail } from "../../components";
 
 @Component({
   tag: "ic-popover-menu",
@@ -86,7 +87,7 @@ export class PopoverMenu {
   /**
    * Emitted when the popover menu is closed.
    */
-  @Event() icPopoverClosed: EventEmitter<void>;
+  @Event() icPopoverClosed: EventEmitter<IcValueEventDetail>;
 
   disconnectedCallback(): void {
     if (this.popperInstance) {
@@ -131,7 +132,7 @@ export class PopoverMenu {
     }>
   ): void {
     if (!ev.detail.hasSubMenu && ev.detail.label !== "Back") {
-      this.closeMenu();
+      this.closeMenu(false, ev.detail.label);
     }
   }
 
@@ -256,15 +257,15 @@ export class PopoverMenu {
    * @param setFocusToAnchor when true return focus to anchor element when menu is closed
    */
   @Method()
-  async closeMenu(setFocusToAnchor = false): Promise<void> {
+  async closeMenu(setFocusToAnchor = false, label?: string): Promise<void> {
     this.open = false;
     if (this.parentPopover) {
-      this.parentPopover.closeMenu(setFocusToAnchor);
+      this.parentPopover.closeMenu(setFocusToAnchor, label);
     } else {
       if (setFocusToAnchor) {
         this.anchorEl?.focus();
       }
-      this.icPopoverClosed.emit();
+      this.icPopoverClosed.emit({ value: label ?? null });
     }
   }
 

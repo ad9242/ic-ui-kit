@@ -22,6 +22,7 @@ import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEvent
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
+import { IcValueEventDetail as IcValueEventDetail1 } from "./components";
 import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
 import { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
@@ -51,6 +52,7 @@ export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEvent
 export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
+export { IcValueEventDetail as IcValueEventDetail1 } from "./components";
 export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
 export { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 export { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
@@ -1389,7 +1391,7 @@ export namespace Components {
         /**
           * @param setFocusToAnchor when true return focus to anchor element when menu is closed
          */
-        "closeMenu": (setFocusToAnchor?: boolean) => Promise<void>;
+        "closeMenu": (setFocusToAnchor?: boolean, label?: string) => Promise<void>;
         /**
           * If `true`, the popover menu will be displayed.
          */
@@ -2954,7 +2956,7 @@ declare global {
         new (): HTMLIcPaginationItemElement;
     };
     interface HTMLIcPopoverMenuElementEventMap {
-        "icPopoverClosed": void;
+        "icPopoverClosed": IcValueEventDetail1;
     }
     interface HTMLIcPopoverMenuElement extends Components.IcPopoverMenu, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcPopoverMenuElementEventMap>(type: K, listener: (this: HTMLIcPopoverMenuElement, ev: IcPopoverMenuCustomEvent<HTMLIcPopoverMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4723,7 +4725,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the popover menu is closed.
          */
-        "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<void>) => void;
+        "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<IcValueEventDetail1>) => void;
         /**
           * If `true`, the popover menu will be displayed.
          */
