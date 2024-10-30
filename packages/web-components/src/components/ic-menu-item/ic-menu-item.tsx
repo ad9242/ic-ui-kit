@@ -228,20 +228,10 @@ export class MenuItem {
             }
             aria-disabled={`${this.disabled}`}
             aria-label={this.getMenuItemAriaLabel()}
-            ariaControlsId={
-              isPropDefined(this.submenuTriggerFor)
-                ? `ic-popover-submenu-${this.submenuTriggerFor}`
-                : false
-            }
             aria-haspopup={
               isPropDefined(this.submenuTriggerFor) ||
               this.el.classList.contains("ic-popover-submenu-back-button")
                 ? "menu"
-                : false
-            }
-            ariaOwnsId={
-              isPropDefined(this.submenuTriggerFor)
-                ? `ic-popover-submenu-${this.submenuTriggerFor}`
                 : false
             }
           >
