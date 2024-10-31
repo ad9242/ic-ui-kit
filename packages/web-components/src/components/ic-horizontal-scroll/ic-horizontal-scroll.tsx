@@ -236,7 +236,11 @@ export class HorizontalScroll {
             class="scroll-arrow"
             variant="icon"
             aria-label="Scroll left"
-            appearance={appearance}
+            theme={
+              appearance == "default" || appearance == "light"
+                ? "light"
+                : "dark"
+            }
             innerHTML={LeftArrow}
             disabled={firstItemVisible}
             tabindex="-1"
@@ -260,7 +264,11 @@ export class HorizontalScroll {
             class="scroll-arrow"
             variant="icon"
             aria-label="Scroll right"
-            appearance={appearance}
+            theme={
+              appearance == "default" || appearance == "light"
+                ? "light"
+                : "dark"
+            }
             innerHTML={RightArrow}
             disabled={lastItemVisible}
             tabindex="-1"

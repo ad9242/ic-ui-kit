@@ -173,7 +173,7 @@ export class AccordionGroup {
           {!singleExpansion && (
             <ic-button
               ref={(el) => (this.allButtonEl = el)}
-              appearance={appearance === "light" ? "light" : "default"}
+              theme={"light"}
               onClick={this.handleExpanded}
               variant="tertiary"
               aria-label={`${this.accordionOpenBtnText()} ${accessibleButtonLabel}`}

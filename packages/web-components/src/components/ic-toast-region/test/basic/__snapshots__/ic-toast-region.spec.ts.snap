@@ -11,7 +11,7 @@ exports[`ic-toast-region component should render 1`] = `
             <ic-typography variant="subtitle-large"></ic-typography>
           </div>
         </div>
-        <ic-button appearance="light" aria-label="dismiss" id="dismiss-button" variant="icon">
+        <ic-button aria-label="dismiss" id="dismiss-button" theme="light" variant="icon">
           svg
         </ic-button>
       </div>

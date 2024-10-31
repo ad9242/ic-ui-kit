@@ -19,11 +19,7 @@ import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
-import {
-  IcActivationTypes,
-  IcStatusVariants,
-  IcThemeForegroundEnum,
-} from "../../utils/types";
+import { IcActivationTypes, IcStatusVariants } from "../../utils/types";
 import { ActionAreaElementTypes } from "./ic-toast.types";
 
 const AUTO_DISMISS_TIMER_REFRESH_RATE_MS = 1000;
@@ -400,7 +396,7 @@ export class Toast {
               innerHTML={closeIcon}
               onClick={this.dismissAction}
               variant="icon"
-              appearance={IcThemeForegroundEnum.Light}
+              theme="light"
               aria-label={dismissButtonAriaLabel}
             ></ic-button>
           )}

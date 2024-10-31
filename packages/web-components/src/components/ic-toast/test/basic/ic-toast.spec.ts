@@ -27,7 +27,7 @@ describe("ic-toast component", () => {
               </ic-typography>
             </div>
           </div>
-          <ic-button appearance="light" id="dismiss-button" aria-label="dismiss" variant="icon">
+          <ic-button theme="light" id="dismiss-button" aria-label="dismiss" variant="icon">
             svg
           </ic-button>
         </div>
@@ -62,7 +62,7 @@ describe("ic-toast component", () => {
               </ic-typography>
             </div>
           </div>
-          <ic-button appearance="light" id="dismiss-button" aria-label="dismiss" variant="icon">
+          <ic-button theme="light" id="dismiss-button" aria-label="dismiss" variant="icon">
             svg
           </ic-button>
         </div>
@@ -98,7 +98,7 @@ describe("ic-toast component", () => {
               </ic-typography>
             </div>
           </div>
-          <ic-button appearance="light" id="dismiss-button" aria-label="dismiss" variant="icon">
+          <ic-button theme="light" id="dismiss-button" aria-label="dismiss" variant="icon">
             svg
           </ic-button>
         </div>

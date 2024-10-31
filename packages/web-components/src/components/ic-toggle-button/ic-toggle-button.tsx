@@ -153,7 +153,11 @@ export class ToggleButton {
             this.accessibleLabel ? this.accessibleLabel : this.label
           }, ${this.checked ? "ticked" : "unticked"}`}
           disabled={this.disabled}
-          appearance={this.appearance}
+          theme={
+            this.appearance == "default" || this.appearance == "light"
+              ? "light"
+              : "dark"
+          }
           size={this.size}
           fullWidth={this.fullWidth}
           loading={this.loading}

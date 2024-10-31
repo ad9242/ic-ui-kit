@@ -213,7 +213,7 @@ export class Alert {
                   innerHTML={closeIcon}
                   onClick={this.dismissAction}
                   variant="icon"
-                  appearance={IcThemeForegroundEnum.Dark}
+                  theme={"dark"}
                   title="dismiss"
                 ></ic-button>
               )}

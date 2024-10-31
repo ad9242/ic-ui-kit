@@ -245,10 +245,6 @@ export namespace Components {
           * If `fileUpload` is set to `true`, this is the accepted list of file types.
          */
         "accept"?: string;
-        /**
-          * The appearance of the button, e.g. dark, light, or the default.
-         */
-        "appearance"?: IcThemeForeground;
         "ariaControlsId": string | boolean;
         "ariaOwnsId": string | boolean;
         /**
@@ -320,6 +316,10 @@ export namespace Components {
          */
         "loading"?: boolean;
         /**
+          * If `true`, the breadcrumb will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
          */
         "multiple"?: boolean;
@@ -347,6 +347,10 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The position of the tooltip in relation to the button.
          */
@@ -3448,10 +3452,6 @@ declare namespace LocalJSX {
           * If `fileUpload` is set to `true`, this is the accepted list of file types.
          */
         "accept"?: string;
-        /**
-          * The appearance of the button, e.g. dark, light, or the default.
-         */
-        "appearance"?: IcThemeForeground;
         "ariaControlsId"?: string | boolean;
         "ariaOwnsId"?: string | boolean;
         /**
@@ -3523,6 +3523,10 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
+          * If `true`, the breadcrumb will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
          */
         "multiple"?: boolean;
@@ -3558,6 +3562,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The position of the tooltip in relation to the button.
          */

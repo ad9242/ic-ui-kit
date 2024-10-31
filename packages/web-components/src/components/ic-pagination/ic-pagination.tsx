@@ -288,7 +288,11 @@ export class Pagination {
       <ic-button
         id="first-page-button"
         aria-label="Go to first page"
-        appearance={this.appearance}
+        theme={
+          this.appearance == "default" || this.appearance == "light"
+            ? "light"
+            : "dark"
+        }
         onClick={this.handleClickFirst}
         class="page-button first-last"
         disabled={this.currentPage === 1 || this.disabled}
@@ -303,7 +307,11 @@ export class Pagination {
       <ic-button
         id="previous-page-button"
         aria-label="Go to previous page"
-        appearance={this.appearance}
+        theme={
+          this.appearance == "default" || this.appearance == "light"
+            ? "light"
+            : "dark"
+        }
         onClick={this.handleClickPrevious}
         class="page-button next-previous flip"
         disabled={this.currentPage === 1 || this.disabled}
@@ -318,7 +326,11 @@ export class Pagination {
       <ic-button
         id="next-page-button"
         aria-label="Go to next page"
-        appearance={this.appearance}
+        theme={
+          this.appearance == "default" || this.appearance == "light"
+            ? "light"
+            : "dark"
+        }
         onClick={this.handleClickNext}
         class="page-button next-previous"
         disabled={this.currentPage === this.pages || this.disabled}
@@ -333,7 +345,11 @@ export class Pagination {
       <ic-button
         id="last-page-button"
         aria-label="Go to last page"
-        appearance={this.appearance}
+        theme={
+          this.appearance == "default" || this.appearance == "light"
+            ? "light"
+            : "dark"
+        }
         onClick={this.handleClickLast}
         class="page-button first-last flip"
         disabled={this.currentPage === this.pages || this.disabled}

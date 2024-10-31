@@ -4,7 +4,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
 <ic-horizontal-scroll>
   <mock:shadow-root>
     <div aria-hidden="true" class="disabled hidden scroll-container-left" role="tab">
-      <ic-button appearance="default" aria-label="Scroll left" class="scroll-arrow" disabled="" tabindex="-1" variant="icon">
+      <ic-button aria-label="Scroll left" class="scroll-arrow" disabled="" tabindex="-1" theme="light" variant="icon">
         svg
       </ic-button>
       <span class="scroll-splitter-left"></span>
@@ -12,7 +12,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
     <slot></slot>
     <div aria-hidden="true" class="hidden scroll-container-right" role="tab">
       <span class="scroll-splitter-right"></span>
-      <ic-button appearance="default" aria-label="Scroll right" class="scroll-arrow" tabindex="-1" variant="icon">
+      <ic-button aria-label="Scroll right" class="scroll-arrow" tabindex="-1" theme="light" variant="icon">
         svg
       </ic-button>
     </div>
@@ -92,7 +92,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
 <ic-horizontal-scroll>
   <mock:shadow-root>
     <div aria-hidden="true" class="disabled hidden scroll-container-left" role="tab">
-      <ic-button appearance="default" aria-label="Scroll left" class="scroll-arrow" disabled="" tabindex="-1" variant="icon">
+      <ic-button aria-label="Scroll left" class="scroll-arrow" disabled="" tabindex="-1" theme="light" variant="icon">
         svg
       </ic-button>
       <span class="scroll-splitter-left"></span>
@@ -100,7 +100,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
     <slot></slot>
     <div aria-hidden="true" class="hidden scroll-container-right" role="tab">
       <span class="scroll-splitter-right"></span>
-      <ic-button appearance="default" aria-label="Scroll right" class="scroll-arrow" tabindex="-1" variant="icon">
+      <ic-button aria-label="Scroll right" class="scroll-arrow" tabindex="-1" theme="light" variant="icon">
         svg
       </ic-button>
     </div>

@@ -227,4 +227,23 @@ describe("ic-horizontal-scroll", () => {
 
     expect(page.rootInstance.itemOverflow).toBe(true);
   });
+
+  // Code Coverage
+  it("should call the runResizeObserver function", async () => {
+    const page = await newSpecPage({
+      components: [HorizontalScroll, NavigationItem],
+      html: `<ic-horizontal-scroll appearance="dark">
+        <div>
+        <ic-navigation-item label="Test nav item 1"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 2"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 3"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 4"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 5"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 6"></ic-navigation-item>
+        </div>
+      </ic-horizontal-scroll>`,
+    });
+
+    page.rootInstance.runResizeObserver();
+  });
 });

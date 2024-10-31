@@ -33,7 +33,6 @@ import {
   IcInformationStatusOrEmpty,
   IcMenuOption,
   IcSearchMatchPositions,
-  IcThemeForegroundEnum,
   IcValueEventDetail,
   IcSizes,
 } from "../../utils/types";
@@ -1298,11 +1297,7 @@ export class Select {
                         onBlur={this.handleClearButtonBlur}
                         size={size}
                         variant="icon"
-                        appearance={
-                          this.clearButtonFocused
-                            ? IcThemeForegroundEnum.Light
-                            : IcThemeForegroundEnum.Dark
-                        }
+                        theme={this.clearButtonFocused ? "light" : "dark"}
                       ></ic-button>
                       <div class="divider"></div>
                     </div>
@@ -1388,11 +1383,7 @@ export class Select {
                     onBlur={this.handleClearButtonBlur}
                     size={size}
                     variant="icon"
-                    appearance={
-                      this.clearButtonFocused
-                        ? IcThemeForegroundEnum.Light
-                        : IcThemeForegroundEnum.Dark
-                    }
+                    theme={this.clearButtonFocused ? "light" : "dark"}
                   ></ic-button>
                 )}
               </div>
