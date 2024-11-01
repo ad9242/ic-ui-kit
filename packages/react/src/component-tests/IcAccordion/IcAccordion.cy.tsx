@@ -37,14 +37,14 @@ const DEFAULT_TEST_THRESHOLD = 0.02;
 
 describe("End-to-end tests", () => {
   describe("IcAccordion", () => {
-    it("should render a simple accordion", () => {
+    it.only("should render a simple accordion", () => {
       mount(<SimpleAccordion />);
 
       cy.checkHydrated(IC_ACCORDION);
       cy.get(IC_ACCORDION).contains("Text").should(BE_VISIBLE);
     });
 
-    it("should expand when clicked", () => {
+    it.only("should expand when clicked", () => {
       mount(<SimpleAccordion />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -61,7 +61,7 @@ describe("End-to-end tests", () => {
         .should("eq", "true");
     });
 
-    it("should expand when space bar pressed", () => {
+    it.only("should expand when space bar pressed", () => {
       mount(<SimpleAccordion />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -71,7 +71,7 @@ describe("End-to-end tests", () => {
       cy.get(IC_ACCORDION).invoke("prop", "expanded").should("eq", true);
     });
 
-    it("should skip disabled accordion when using tab", () => {
+    it.only("should skip disabled accordion when using tab", () => {
       mount(<AccordionsWithDisabled />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -93,7 +93,7 @@ describe("End-to-end tests", () => {
     });
   });
   describe("IcAccordionGroup", () => {
-    it("should render an accordion group", () => {
+    it.only("should render an accordion group", () => {
       mount(
         <IcAccordionGroup label="Group">
           <TwoAccordions />
@@ -104,7 +104,7 @@ describe("End-to-end tests", () => {
       cy.get(IC_ACCORDION_GROUP).should(BE_VISIBLE);
     });
 
-    it("should have changed button text to 'See all' when expanded accordion clicked", () => {
+    it.only("should have changed button text to 'See all' when expanded accordion clicked", () => {
       mount(
         <IcAccordionGroup expanded={true}>
           <SimpleExpandedAccordion />
@@ -123,7 +123,7 @@ describe("End-to-end tests", () => {
       );
     });
 
-    it("should open accordion when 'See all' clicked", () => {
+    it.only("should open accordion when 'See all' clicked", () => {
       mount(
         <IcAccordionGroup>
           <IcAccordion></IcAccordion>
@@ -177,7 +177,7 @@ describe("End-to-end tests", () => {
       );
     });
 
-    it("should open second accordion and close first accordion on single expansion", () => {
+    it.only("should open second accordion and close first accordion on single expansion", () => {
       mount(
         <IcAccordionGroup singleExpansion label="Title">
           <TwoAccordionsWithOneExpanded />
@@ -211,7 +211,7 @@ describe("End-to-end tests", () => {
         .should("eq", true);
     });
 
-    it("should have both accordions open when single expansion is false", () => {
+    it.only("should have both accordions open when single expansion is false", () => {
       mount(<GroupWithOneExpanded />);
 
       cy.checkHydrated(IC_ACCORDION_GROUP);
@@ -243,7 +243,7 @@ describe("Visual regression and a11y tests", () => {
   });
 
   describe("IcAccordion", () => {
-    it("should render an accordion with a heading and body", () => {
+    it.only("should render an accordion with a heading and body", () => {
       mount(<SimpleAccordion />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -255,7 +255,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render an expanded accordion", () => {
+    it.only("should render an expanded accordion", () => {
       mount(<SimpleExpandedAccordion />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -267,7 +267,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render an accordion with an icon", () => {
+    it.only("should render an accordion with an icon", () => {
       mount(<WithIcon />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -279,7 +279,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render a disabled accordion", () => {
+    it.only("should render a disabled accordion", () => {
       mount(<AccordionsWithDisabled />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -291,7 +291,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render a focused accordion", () => {
+    it.only("should render a focused accordion", () => {
       mount(
         <div style={{ padding: "10px" }}>
           <SimpleAccordion />
@@ -310,7 +310,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render with children", () => {
+    it.only("should render with children", () => {
       mount(<WithChildren />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -322,7 +322,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render accordions at different sizes", () => {
+    it.only("should render accordions at different sizes", () => {
       mount(<DifferentSizes />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -334,21 +334,21 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render an accordion in dark theme", () => {
+    it.only("should render an accordion in dark theme", () => {
       mount(<DarkTheme />);
 
       cy.checkHydrated(IC_ACCORDION);
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "heading-body",
+        name: "dark-theme",
         testThreshold: setThresholdBasedOnEnv(0),
       });
     });
   });
 
   describe("IcAccordionGroup", () => {
-    it("should render a custom label", () => {
+    it.only("should render a custom label", () => {
       mount(
         <IcAccordionGroup label="Custom Group Title">
           <TwoAccordions />
@@ -364,7 +364,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render a single expansion accordion-group", () => {
+    it.only("should render a single expansion accordion-group", () => {
       mount(
         <IcAccordionGroup singleExpansion label="Single Expansion">
           <TwoAccordions />
@@ -380,7 +380,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render accordion groups at different sizes", () => {
+    it.only("should render accordion groups at different sizes", () => {
       mount(<DifferentSizesGroup />);
 
       cy.checkHydrated(IC_ACCORDION_GROUP);
@@ -392,7 +392,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render an accordion group and accordion with slotted headings", () => {
+    it.only("should render an accordion group and accordion with slotted headings", () => {
       mount(<SlottedHeadingAccordion />);
 
       cy.checkHydrated(IC_ACCORDION_GROUP);
@@ -404,7 +404,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render an accordion group in dark theme", () => {
+    it.only("should render an accordion group in dark theme", () => {
       mount(<DarkThemeGroup />);
 
       cy.checkHydrated(IC_ACCORDION_GROUP);
@@ -416,7 +416,7 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render an accordion group in dark theme with slotted content", () => {
+    it.only("should render an accordion group in dark theme with slotted content", () => {
       mount(<DarkThemeGroupSlottedContent />);
 
       cy.checkHydrated(IC_ACCORDION_GROUP);
@@ -444,7 +444,7 @@ describe("Visual regression tests in high contrast mode", () => {
   });
 
   describe("IcAccordion", () => {
-    it("should render an accordion with a heading and body in high contrast mode", () => {
+    it.only("should render an accordion with a heading and body in high contrast mode", () => {
       mount(<SimpleAccordion />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -455,7 +455,7 @@ describe("Visual regression tests in high contrast mode", () => {
       });
     });
 
-    it("should render an expanded accordion in high contrast mode", () => {
+    it.only("should render an expanded accordion in high contrast mode", () => {
       mount(<SimpleExpandedAccordion />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -466,7 +466,7 @@ describe("Visual regression tests in high contrast mode", () => {
       });
     });
 
-    it("should render a disabled accordion in high contrast mode", () => {
+    it.only("should render a disabled accordion in high contrast mode", () => {
       mount(<AccordionsWithDisabled />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -477,7 +477,7 @@ describe("Visual regression tests in high contrast mode", () => {
       });
     });
 
-    it("should render with children in high contrast mode", () => {
+    it.only("should render with children in high contrast mode", () => {
       mount(<WithChildren />);
 
       cy.checkHydrated(IC_ACCORDION);
@@ -488,7 +488,7 @@ describe("Visual regression tests in high contrast mode", () => {
       });
     });
 
-    it("should render a focused accordion in high contrast mode", () => {
+    it.only("should render a focused accordion in high contrast mode", () => {
       mount(
         <div style={{ padding: "10px" }}>
           <SimpleAccordion />
@@ -509,7 +509,7 @@ describe("Visual regression tests in high contrast mode", () => {
   });
 
   describe("IcAccordionGroup", () => {
-    it("should render a single expansion accordion-group in high contrast mode", () => {
+    it.only("should render a single expansion accordion-group in high contrast mode", () => {
       mount(
         <IcAccordionGroup singleExpansion label="Single Expansion">
           <TwoAccordions />
@@ -524,7 +524,7 @@ describe("Visual regression tests in high contrast mode", () => {
       });
     });
 
-    it("should render accordion groups at different sizes in high contrast mode", () => {
+    it.only("should render accordion groups at different sizes in high contrast mode", () => {
       mount(<DifferentSizesGroup />);
 
       cy.checkHydrated(IC_ACCORDION_GROUP);
