@@ -427,7 +427,7 @@
 
 :host(.ic-button-variant-icon) .button,
 :host(.ic-button-variant-icon) ::slotted(a) {
-  color: var(--ic-button-secondary-icon-active);
+  color: var(--ic-atoms-input-clear-button);
   min-width: 0;
   gap: var(--ic-space-xs);
   margin: var(--ic-space-1px) 0;
@@ -440,8 +440,8 @@
 
 :host(.ic-button-variant-icon) .button:hover,
 :host(.ic-button-variant-icon) ::slotted(a:hover) {
-  background-color: var(--ic-action-default-bg-hover);
-  color: var(--ic-action-default-hover);
+  background-color: var(--ic-atoms-input-clear-button-hover);
+  color: var(--ic-atoms-input-clear-button);
 }
 
 :host(.ic-button-variant-icon) .button:active:not(:focus),

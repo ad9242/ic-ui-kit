@@ -111,6 +111,9 @@ ic-theme,
   --ic-atoms-input-clear-button-focus: var(
     --ic-atoms-input-clear-button-focus-light
   );
+  --ic-atoms-input-clear-button-hover: var(
+    --ic-color-background-clear-icon-hover
+  );
   --ic-atoms-input-search-button: var(--ic-atoms-input-search-button-light);
   --ic-atoms-input-search-button-focus: var(
     --ic-atoms-input-search-button-focus-light
@@ -815,6 +818,9 @@ ic-theme,
     --ic-atoms-input-clear-button: var(--ic-atoms-input-clear-button-dark);
     --ic-atoms-input-clear-button-focus: var(
       --ic-atoms-input-clear-button-focus-dark
+    );
+    --ic-atoms-input-clear-button-hover: var(
+      --ic-color-background-clear-icon-hover
     );
     --ic-atoms-input-search-button: var(--ic-atoms-input-search-button-dark);
     --ic-atoms-input-search-button-focus: var(
@@ -1525,6 +1531,9 @@ ic-theme,
   --ic-atoms-input-clear-button: var(--ic-atoms-input-clear-button-dark);
   --ic-atoms-input-clear-button-focus: var(
     --ic-atoms-input-clear-button-focus-dark
+  );
+  --ic-atoms-input-clear-button-hover: var(
+    --ic-color-background-clear-icon-hover
   );
   --ic-atoms-input-search-button: var(--ic-atoms-input-search-button-dark);
   --ic-atoms-input-search-button-focus: var(
