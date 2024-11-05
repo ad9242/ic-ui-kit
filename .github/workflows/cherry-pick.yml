@@ -10,6 +10,8 @@ on:
 jobs:
   cherry_pick_release_v3_0:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     name: Cherry pick into v3.0.0/develop
     if: ${{ github.event.pull_request.merged == true }}
     steps:
