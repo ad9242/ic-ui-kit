@@ -23,6 +23,7 @@ jobs:
       - name: Cherry pick into v3.0.0/develop
         uses: carloscastrojumo/github-cherry-pick-action@bb0869df47c27be4ae4c7a2d93d22827aa5a0054
         with:
+          node-version: 20
           branch: v3.0.0/develop
           labels: |
             cherry-pick
