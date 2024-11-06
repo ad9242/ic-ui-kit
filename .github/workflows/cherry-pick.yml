@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     name: Cherry pick into v3.0.0/develop
     if: ${{ github.event.pull_request.merged == true }}
     steps:
