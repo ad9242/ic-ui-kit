@@ -106,6 +106,7 @@ export class Accordion {
         this.CONTENT_VISIBILITY_PROPERTY,
         "visible"
       );
+      console.log("expanded again");
     }
   }
 
