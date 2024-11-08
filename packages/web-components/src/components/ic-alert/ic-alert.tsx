@@ -89,6 +89,7 @@ export class Alert {
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
+    console.log("alert?!?");
   }
 
   @Listen("icDismiss", { capture: true })
