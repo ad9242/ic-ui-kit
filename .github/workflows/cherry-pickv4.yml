@@ -8,25 +8,51 @@ on:
     types: ["closed"]
 
 jobs:
-  cherry_pick_release_v4_0:
+  cherry_pick_release_v3_0:
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
-    name: Cherry pick into v4.0.0/develop
+    name: Cherry pick into v3.0.0/develop
     if: ${{ github.event.pull_request.merged == true }}
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
         with:
           fetch-depth: 0
-      - name: Cherry pick into v4.0.0/develop
-        uses: carloscastrojumo/github-cherry-pick-action@c980652a80bb76d11b6cdc38efb0a5cee28ff4e6 #v1.0.10
+
+      - name: Setup node
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
-          branch: v4.0.0/develop
-          labels: |
-            cherry-pick
-          title: '[v4 cherry-pick] {old_title}'
-          body: 'Cherry picking #{old_pull_request_id} onto this branch'
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          node-version: 20
+
+      - name: Install GitHub CLI
+        run: sudo apt-get install gh
+
+      - name: Fetch PR Commits
+        id: fetch_commits
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          COMMITS=$(gh pr view $PR_NUMBER --json commits --jq '.commits[].oid')
+          echo "COMMITS=$COMMITS" >> $GITHUB_ENV
+
+      - name: Create new branch and cherry pick commits
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout v3.0.0/develop
+          NEW_BRANCH_NAME="cherry-pick-${{ github.event.pull_request.head.ref }}"
+          git checkout -b $NEW_BRANCH_NAME
+          for commit in $COMMITS; do
+            git cherry-pick $commit || git cherry-pick --abort
+          done
+          git push origin $NEW_BRANCH_NAME
+        env:
+          COMMITS: ${{ env.COMMITS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create pull request
+        run: |
+          gh pr create --title "Cherry pick commits from ${{ github.event.pull_request.head.ref }}" --body "Cherry pick commits from PR #${{ github.event.pull_request.number }}" --head $NEW_BRANCH_NAME --base v3.0.0/develop
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
