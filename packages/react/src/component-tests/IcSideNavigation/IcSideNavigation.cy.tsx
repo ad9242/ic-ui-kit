@@ -17,7 +17,7 @@ import {
   BasicSideNav,
   CloseOnNavItemClickSideNav,
   DisableTopBarBehaviourSideNav,
-  DynamicExpandedSideNav,
+  DynamicSideNav,
   ExpandedSideNav,
   GroupedSideNav,
   LongPropsSideNav,
@@ -375,7 +375,9 @@ describe("IcSideNavigation", () => {
     });
 
     it("should render expanded when expanded state is externally controlled", () => {
-      mount(<DynamicExpandedSideNav />);
+      mount(<DynamicSideNav />);
+
+      cy.injectAxe();
 
       cy.get("#expand-btn").click();
 
@@ -388,11 +390,10 @@ describe("IcSideNavigation", () => {
     });
 
     it("should render collapsed when expanded state is externally controlled", () => {
-      mount(<DynamicExpandedSideNav />);
+      mount(<DynamicSideNav initialExpanded />);
 
       cy.injectAxe();
 
-      cy.get("#expand-btn").click();
       cy.get("#collapse-btn").click();
 
       cy.checkA11yWithWait(undefined, 500);

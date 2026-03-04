@@ -116,8 +116,8 @@ export const ExpandedSideNav = (): ReactElement => (
   </IcSideNavigation>
 );
 
-export const DynamicExpandedSideNav = (): ReactElement => {
-  const [expanded, setExpanded] = useState(true);
+export const DynamicSideNav = ({ initialExpanded = false }): ReactElement => {
+  const [expanded, setExpanded] = useState(initialExpanded);
   const expandedClickHandler = () => {
     setExpanded(true);
   };
@@ -125,12 +125,13 @@ export const DynamicExpandedSideNav = (): ReactElement => {
     setExpanded(false);
   };
   return (
-    <div style={{ display: "flex", height: "100%" }}>
+    <div style={{ display: "flex", height: "100%", paddingLeft: "3.5rem" }}>
       <IcSideNavigation
         appTitle="ACME"
         version="v0.0.0"
         status="BETA"
         expanded={expanded}
+        disableAutoParentStyling
       >
         <SlottedSVG
           slot="app-icon"
