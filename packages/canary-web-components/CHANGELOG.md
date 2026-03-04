@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.36...@ukic/canary-web-components@3.0.0-canary.37) (2026-03-05)
+# [3.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.36...@ukic/canary-web-components@3.0.0-canary.37) (2026-03-04)
 
 ### Bug Fixes
 
